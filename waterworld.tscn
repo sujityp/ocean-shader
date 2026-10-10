@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://0fyyqxv1bs1"]
+
+[ext_resource type="Shader" uid="uid://beoh667tpon3d" path="res://waterworld.gdshader" id="1_1jvni"]
+[ext_resource type="Script" uid="uid://dhpnsf6yb22hr" path="res://ocean_plane_mesh_3d.gd" id="2_vw1q4"]
+[ext_resource type="Script" uid="uid://cwd5aogdxt0eb" path="res://camera_pivot.gd" id="3_pa7im"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2xofe"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1jvni"]
+sky_material = SubResource("ProceduralSkyMaterial_2xofe")
+
+[sub_resource type="Environment" id="Environment_vw1q4"]
+background_mode = 2
+sky = SubResource("Sky_1jvni")
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sus3h"]
+render_priority = 0
+shader = ExtResource("1_1jvni")
+shader_parameter/active = false
+shader_parameter/surface_color = Vector3(0, 0.17, 0.302)
+shader_parameter/HEIGHT_SCALE = 1.0
+shader_parameter/SHININESS = 300.0
+shader_parameter/MAX_PEAK = 1.0
+shader_parameter/PEAK_OFFSET = 1.865
+shader_parameter/MAX_WAVELENGTH = 6.28
+shader_parameter/FBR_WAVELENGTH = 1.16
+shader_parameter/MAX_AMPLITUDE = 1.0
+shader_parameter/FBR_AMPLITUDE = 0.83
+shader_parameter/MAX_SPEED = 2.0
+shader_parameter/FBR_SPEED = 0.9
+shader_parameter/directions = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/phases = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/NUM_FRAG_WAVES = 10
+shader_parameter/FRAG_MAX_AMPLITUDE = 1.0
+shader_parameter/FRAG_MAX_WAVELENGTH = 6.28
+shader_parameter/FRAG_MAX_SPEED = 2.0
+shader_parameter/FRAG_FBR_AMPLITUDE = 0.83
+shader_parameter/FRAG_FBR_WAVELENGTH = 1.16
+shader_parameter/FRAG_FBR_SPEED = 1.07
+shader_parameter/NORMAL_STRENGTH = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pe36x"]
+material = SubResource("ShaderMaterial_sus3h")
+size = Vector2(10, 10)
+subdivide_width = 64
+subdivide_depth = 64
+
+[node name="WaterWorld" type="Node3D" unique_id=547143133]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1512446762]
+environment = SubResource("Environment_vw1q4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1682391733]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OceanPlaneMesh3D" type="MeshInstance3D" parent="." unique_id=1127054167]
+mesh = SubResource("PlaneMesh_pe36x")
+script = ExtResource("2_vw1q4")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1415071188]
+transform = Transform3D(0.99991435, -0.008544364, 0.009916223, 0, 0.757565, 0.65275973, -0.0130896, -0.6527038, 0.7575001, 0.03208485, 2.114205, 2.450961)
+script = ExtResource("3_pa7im")
+rotation_speed = 1.0
+zoom_speed = 1.0
+min_zoom = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1485962424]

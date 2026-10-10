@@ -1,0 +1,42 @@
+[gd_scene format=4 uid="uid://r7eipgq5kl7q"]
+
+[ext_resource type="Shader" uid="uid://dcy2875qssc7o" path="res://waterworld_2.gdshader" id="1_huof7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_huof7"]
+sky_top_color = Color(0.5294118, 0.80784315, 0.98039216, 1)
+sky_horizon_color = Color(1.2357337, 1.3445573, 1.4445573, 1)
+ground_bottom_color = Color(0.3254902, 0.48235294, 0.70980394, 1)
+ground_horizon_color = Color(1.2357337, 1.3445573, 1.4445573, 1)
+
+[sub_resource type="Sky" id="Sky_271hf"]
+sky_material = SubResource("ProceduralSkyMaterial_huof7")
+
+[sub_resource type="Environment" id="Environment_ng0tj"]
+background_mode = 2
+sky = SubResource("Sky_271hf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sus3h"]
+render_priority = 0
+shader = ExtResource("1_huof7")
+shader_parameter/wave_count = 10
+shader_parameter/wave_params = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/wave_directions = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pe36x"]
+material = SubResource("ShaderMaterial_sus3h")
+subdivide_width = 64
+subdivide_depth = 64
+
+[node name="Waterworld2" type="Node3D" unique_id=424696134]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=770856174]
+environment = SubResource("Environment_ng0tj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1098895990]
+transform = Transform3D(-1, 4.371139e-08, -7.5710346e-08, 0, 0.8660254, 0.5, 8.742278e-08, 0.5, -0.8660254, 0, 0, 0)
+shadow_enabled = true
+
+[node name="OceanMeshInstance3D" type="MeshInstance3D" parent="." unique_id=1147473991]
+mesh = SubResource("PlaneMesh_pe36x")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=240506554]
